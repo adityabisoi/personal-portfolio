@@ -5,3 +5,10 @@ class Blog(models.Model):
     date = models.DateField(auto_now_add=True)
     body = models.TextField()
     image = models.ImageField(upload_to='images/')
+
+    #To return title to admin page
+    def __str__(self):
+        return self.title
+
+    def limit(self):
+        return self.body[:100]
